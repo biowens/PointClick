@@ -8,6 +8,7 @@ public class InteractionManager : MonoBehaviour
     public Vector3Variable clickLocation;
 
     public GameEvent movePlayerEvent;
+    public Vector3Variable movePlayerLocation;
 
     // Update is called once per frame
     public void interactionManager()
@@ -29,6 +30,7 @@ public class InteractionManager : MonoBehaviour
 
     void movePlayer()
     {
+        movePlayerLocation.SetValue(clickLocation.Value);
         movePlayerEvent.Raise();
     }
 

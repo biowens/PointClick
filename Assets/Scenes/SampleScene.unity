@@ -721,6 +721,7 @@ MonoBehaviour:
   clickObject: {fileID: 11400000, guid: da9b047829cb8734d940a6a9f972d9bc, type: 2}
   clickLocation: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
   movePlayerEvent: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
+  movePlayerLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
 --- !u!114 &1322363059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5934f08e925a7447ba7a0186beed60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDestination: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
+  moveDestination: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
 --- !u!65 &2039402597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1092,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePlayer: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
-  moveLocation: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
+  moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
   standPoint: {fileID: 800553358}
 --- !u!65 &2040313270
 BoxCollider:
