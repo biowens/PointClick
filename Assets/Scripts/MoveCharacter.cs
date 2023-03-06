@@ -17,8 +17,8 @@ public class MoveCharacter : MonoBehaviour
 
     public void moveCharacterToDestination()
     {
-        Debug.Log("Test");
-        Debug.Log("AIPath Destination" + aipath.destination);
+        //Debug.Log("Test");
+        //Debug.Log("AIPath Destination" + aipath.destination);
         aipath.destination = moveDestination.Value;
     }
 }
