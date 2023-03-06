@@ -13,7 +13,7 @@ public class ClickPositionManager : MonoBehaviour {
 
     void Update() {
         // If right/left click is detected
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
             // Initializes clickPosition to identify false clicks
             Vector3 clickPosition = -Vector3.one;
 
@@ -29,7 +29,7 @@ public class ClickPositionManager : MonoBehaviour {
                 clickObject.SetValue(hit.collider.gameObject);
 
                 // Save mouse input
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                     mouseInput.SetValue(0);
                 else
                     mouseInput.SetValue(1);
