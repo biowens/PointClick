@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
+    public FloatVariable mouseInput;
+
     public GameObjectVariable clickObject;
     public Vector3Variable clickLocation;
 
@@ -11,31 +13,47 @@ public class InteractionManager : MonoBehaviour
     public Vector3Variable movePlayerLocation;
 
     // Update is called once per frame
-    public void interactionManager()
+    public void ManageInteract()
     {
-        switch(clickObject.Value.tag) 
+        // If left click, interactions will be move and use
+        if (mouseInput.Value == 0)
         {
-        case "Walkable":
-            movePlayer();
-            break;
-        case "Interactable":
-            interact();
-            break;
-        default:
-            // code block
-            break;
+            switch (clickObject.Value.tag)
+            {
+                case "Walkable":
+                    MovePlayer();
+                    break;
+                case "Interactable":
+                    Interact();
+                    break;
+                default:
+                    // code block
+                    break;
+            }
         }
+        // If right click, interactions will be look
+        else if (mouseInput.Value == 1)
+        {
+            if (clickObject.Value.tag == "Interactable")
+                Look();
+        }
+        
 
     }
 
-    void movePlayer()
+    void MovePlayer()
     {
         movePlayerLocation.SetValue(clickLocation.Value);
         movePlayerEvent.Raise();
     }
 
-    void interact() 
+    void Interact() 
     {
         clickObject.Value.GetComponent<Interactable>().Interact();
+    }
+
+    void Look()
+    {
+        clickObject.Value.GetComponent<Interactable>().Look();
     }
 }

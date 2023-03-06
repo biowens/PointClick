@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SpawnerRecord
+{
+    public GameObject prefab;
+    public float weight;
+}
+
 public class Interactable : MonoBehaviour
 {
     public GameEvent movePlayer;
@@ -9,6 +16,8 @@ public class Interactable : MonoBehaviour
 
     public GameObject standPoint;
 
+    public List<SpawnerRecord> states;
+    
     public void Interact()
     {
         moveLocation.SetValue(standPoint.transform.position);
@@ -17,15 +26,9 @@ public class Interactable : MonoBehaviour
         Debug.Log("You Interacted!");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Look()
     {
-        
+        Debug.Log("You Looked!");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

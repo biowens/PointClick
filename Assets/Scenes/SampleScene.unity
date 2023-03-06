@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   validClick: {fileID: 11400000, guid: 8c31363f1d4f62e4da7e3f6dfdc6810f, type: 2}
+  mouseInput: {fileID: 11400000, guid: 8ad8ce677bf95734a9898f050de37fc8, type: 2}
   clickLocation: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
   clickObject: {fileID: 11400000, guid: da9b047829cb8734d940a6a9f972d9bc, type: 2}
 --- !u!4 &1322363057
@@ -718,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7587de0a05f6f5429583f8de66d6115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseInput: {fileID: 11400000, guid: 8ad8ce677bf95734a9898f050de37fc8, type: 2}
   clickObject: {fileID: 11400000, guid: da9b047829cb8734d940a6a9f972d9bc, type: 2}
   clickLocation: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
   movePlayerEvent: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
@@ -740,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1322363058}
         m_TargetAssemblyTypeName: InteractionManager, Assembly-CSharp
-        m_MethodName: interactionManager
+        m_MethodName: ManageInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -982,7 +984,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -999,14 +1001,14 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: 10
+  maxAcceleration: 100
   rotationSpeed: 360
   slowdownDistance: 0.2
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &2039402595
 MonoBehaviour:
@@ -1095,6 +1097,9 @@ MonoBehaviour:
   movePlayer: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
   moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
   standPoint: {fileID: 800553358}
+  states:
+  - prefab: {fileID: 0}
+    weight: 0
 --- !u!65 &2040313270
 BoxCollider:
   m_ObjectHideFlags: 0
