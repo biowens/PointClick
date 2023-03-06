@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class ClickPositionManager : MonoBehaviour {
 
-    
+    public bool lockClick;
+
     public GameEvent validClick;
 
     public FloatVariable mouseInput;
     public Vector3Variable clickLocation;
     public GameObjectVariable clickObject;
 
+    void Awake() 
+    {
+        // Init click lock to off
+        lockClick = false;
+    }
+
     void Update() {
-        // If right/left click is detected
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
+        // If right/left click is detected and click lock is not active
+        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !lockClick) {
             // Initializes clickPosition to identify false clicks
             Vector3 clickPosition = -Vector3.one;
 
@@ -42,5 +49,8 @@ public class ClickPositionManager : MonoBehaviour {
         }       
     }
 
-
+    public void SetLockClick(bool value) 
+    {
+        lockClick = value;
+    }
 }

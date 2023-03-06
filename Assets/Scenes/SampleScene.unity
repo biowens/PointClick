@@ -669,6 +669,8 @@ GameObject:
   - component: {fileID: 1322363056}
   - component: {fileID: 1322363059}
   - component: {fileID: 1322363058}
+  - component: {fileID: 1322363061}
+  - component: {fileID: 1322363060}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -688,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964026e6babd467469827f75dfe6126e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockClick: 0
   validClick: {fileID: 11400000, guid: 8c31363f1d4f62e4da7e3f6dfdc6810f, type: 2}
   mouseInput: {fileID: 11400000, guid: 8ad8ce677bf95734a9898f050de37fc8, type: 2}
   clickLocation: {fileID: 11400000, guid: d92c478ef129829499b64ccc717dc570, type: 2}
@@ -751,6 +754,62 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1322363060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322363055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaf7221355e7994db48915033cf6afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fcec352175d4fc34e82a2e1d1241cde2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1322363056}
+        m_TargetAssemblyTypeName: ClickPositionManager, Assembly-CSharp
+        m_MethodName: SetLockClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1322363061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322363055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaf7221355e7994db48915033cf6afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c433a80ea7b8aa742bd409b211583fbd, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1322363056}
+        m_TargetAssemblyTypeName: ClickPositionManager, Assembly-CSharp
+        m_MethodName: SetLockClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1549905050
 GameObject:
@@ -1094,6 +1153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da0a8498c5d51438b808a0776345da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockClick: {fileID: 11400000, guid: c433a80ea7b8aa742bd409b211583fbd, type: 2}
+  unlockClick: {fileID: 11400000, guid: fcec352175d4fc34e82a2e1d1241cde2, type: 2}
   movePlayer: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
   moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
   standPoint: {fileID: 800553358}
