@@ -35,24 +35,14 @@ public class Interactable : MonoBehaviour
     public GameObject standPoint;
 
     [Header("Interaction Management")]
+    [SerializeField]
+    private GameObject currentObject;
 
     public List<States> states;
     
     public void Interact()
     {
         StartCoroutine(InteractCoroutine());
-
-        /*
-        // Lock clicking until interaction is done
-        lockClick.Raise();
-
-        MovePlayer();
-
-        Debug.Log("You Interacted!");
-
-        // Unlock clicking now interaction is done
-        unlockClick.Raise();
-        */
     }
 
     // I did this because I dont know how to wait :raegret:
@@ -73,8 +63,6 @@ public class Interactable : MonoBehaviour
             Debug.Log("NOT WAITING");
         }
         
-        //Debug.Log("Start Pick Up");
-        //PickUp();
         Debug.Log("Start StateChange");
         StateChange();
 
@@ -101,15 +89,32 @@ public class Interactable : MonoBehaviour
 
         // Check if there's a state that is valid to change to
         // For each state
-        for (int i = 0; i < states.Count; i++)
+        /*
+        int stateIndex = 0;
+        int enabledObjIndex = 0;
+
+        int stateCount = states.Count;
+        int enabledObjCount;
+
+        while (stateIndex < stateCount && states[stateIndex].interactionItem != activeItem)
+        {
+            stateIndex++;
+        }
+        */
+
+        bool stateChanged = false;
+        
+        for (int i = 0; i < states.Count && !stateChanged; i++)
         {
             // If there's an active item, check to see if state has same item, or if no active item, check if state has no items listed
             if (states[i].interactionItem == activeItem)
             {
-                // For each EnabledObject
+                // Initialize allObjectsEnabled
+                allObjectsEnabled = true;
+
+                // Verify that each object is enabled
                 for (int j = 0; j < states[i].enabledObjects.Count; j++)
                 {
-                    // Verify that each object is enabled
                     if (!states[i].enabledObjects[j].activeSelf)
                         allObjectsEnabled = false;
                 }
@@ -126,22 +131,39 @@ public class Interactable : MonoBehaviour
                     }
 
                     // Disable current game object
-                    this.gameObject.SetActive(false);
-                    Debug.Log("Disabling current object " + this.gameObject.name);
+                    //this.gameObject.SetActive(false);
+                    currentObject.SetActive(false);
+                    Debug.Log("Disabling current object " + currentObject.name);
 
                     // Pick up object, if needed
                     if (states[i].pickUpItem != null)
                     {
                         inventory.AddItem(states[i].pickUpItem);
-                        Debug.Log("Picked Up Item");
+                        Debug.Log("Picked Up Item " + states[i].pickUpItem.name);
                     }
 
                     // Enable the game object in that state, if there is one
                     if (states[i].changeStateObject != null)
                     {
+                        currentObject = states[i].changeStateObject;
+                        Debug.Log("Set currentObject to " + states[i].changeStateObject.name);  
+
                         states[i].changeStateObject.SetActive(true);
+
+                        // Set currentObject in the changed object too
+                        if (states[i].changeStateObject.GetComponent<Interactable>() != null) {
+                             states[i].changeStateObject.GetComponent<Interactable>().setCurrentObject(currentObject);
+                             Debug.Log("Set currentObject in " + states[i].changeStateObject.name + " to " + currentObject.name);
+                        }
+                        else {
+                             states[i].changeStateObject.GetComponentInParent<Interactable>().setCurrentObject(currentObject);
+                             Debug.Log("Set currentObject in " + states[i].changeStateObject + "'s parent to " + currentObject.name);
+                        }
+                           
                         Debug.Log("Enabling new object " + states[i].changeStateObject.name);
                     }
+
+                    stateChanged = true;
                 }
             }
         }
@@ -152,6 +174,10 @@ public class Interactable : MonoBehaviour
         Debug.Log("You Looked!");
     }
 
+    public void setCurrentObject(GameObject newCurrentObject)
+    {
+        currentObject = newCurrentObject;
+    }
 
     // ******************************************
     // OLD FUNCTIONS TO REFERENCE LATER IF NEEDED
