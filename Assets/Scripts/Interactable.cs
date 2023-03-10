@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SpawnerRecord
+public class States
 {
-    public GameObject prefab;
-    public float weight;
+    public GameObject changeStateObject;
+    public Item interactionItem;
+    public bool destroyInteractionItem;
+    public Item pickUpItem;
+    public List<GameObject> enabledObjects;
+}
+
+public enum interactionType
+{
+    ChangeState,
+    PickUp
 }
 
 public class Interactable : MonoBehaviour
 {
+    [Header("Game Events")]
     public GameEvent lockClick;
     public GameEvent unlockClick;
     
-    public BoolVariable playerMoving;
-
     public GameEvent movePlayer;
-    public Vector3Variable moveLocation;
 
+    [Header("Scriptable Object References")]
+    public BoolVariable playerMoving;
+    public Vector3Variable moveLocation;
+    public ItemCollection inventory;
+
+    [Header("GameObject")]
     public GameObject standPoint;
 
-    public List<SpawnerRecord> states;
+    [Header("Interaction Management")]
 
-    private IEnumerable coroutine;
+    public List<States> states;
     
     public void Interact()
     {
@@ -59,11 +72,79 @@ public class Interactable : MonoBehaviour
             yield return new WaitUntil(() => !playerMoving.Value);
             Debug.Log("NOT WAITING");
         }
+        
+        //Debug.Log("Start Pick Up");
+        //PickUp();
+        Debug.Log("Start StateChange");
+        StateChange();
 
         Debug.Log("You Interacted!");
 
         // Unlock clicking now interaction is done
         unlockClick.Raise();
+    }
+
+    private void StateChange()
+    {
+        Item activeItem = null;
+        bool allObjectsEnabled = true;
+
+        // Check if there's an active item in inventory
+        for (int i = 0; i < inventory.Items.Count; i++)
+        {
+            // If there is, save it
+            if (inventory.Items[i].active)
+                activeItem = inventory.Items[i].item;
+        }
+
+        Debug.Log("Active Item is " + activeItem);
+
+        // Check if there's a state that is valid to change to
+        // For each state
+        for (int i = 0; i < states.Count; i++)
+        {
+            // If there's an active item, check to see if state has same item, or if no active item, check if state has no items listed
+            if (states[i].interactionItem == activeItem)
+            {
+                // For each EnabledObject
+                for (int j = 0; j < states[i].enabledObjects.Count; j++)
+                {
+                    // Verify that each object is enabled
+                    if (!states[i].enabledObjects[j].activeSelf)
+                        allObjectsEnabled = false;
+                }
+
+                Debug.Log("AllObjectsEnabled is " + allObjectsEnabled);
+
+                if (allObjectsEnabled)
+                {
+                    // If destroy interaction object, remove object from inventory
+                    if (states[i].destroyInteractionItem)
+                    {
+                        inventory.RemoveActiveItem();
+                        Debug.Log("Removed active item from inventory");
+                    }
+
+                    // Disable current game object
+                    this.gameObject.SetActive(false);
+                    Debug.Log("Disabling current object " + this.gameObject.name);
+
+                    // Pick up object, if needed
+                    if (states[i].pickUpItem != null)
+                    {
+                        inventory.AddItem(states[i].pickUpItem);
+                        Debug.Log("Picked Up Item");
+                    }
+
+                    // Enable the game object in that state, if there is one
+                    if (states[i].changeStateObject != null)
+                    {
+                        states[i].changeStateObject.SetActive(true);
+                        Debug.Log("Enabling new object " + states[i].changeStateObject.name);
+                    }
+                }
+            }
+        }
     }
 
     public void Look()
