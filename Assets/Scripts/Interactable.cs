@@ -76,34 +76,13 @@ public class Interactable : MonoBehaviour
     {
         Item activeItem = null;
         bool allObjectsEnabled = true;
+        bool stateChanged = false;
 
         // Check if there's an active item in inventory
-        for (int i = 0; i < inventory.Items.Count; i++)
-        {
-            // If there is, save it
-            if (inventory.Items[i].active)
-                activeItem = inventory.Items[i].item;
-        }
-
+        if (inventory.getActiveIndex() != -1)
+            activeItem = inventory.Items[inventory.getActiveIndex()].item;
         Debug.Log("Active Item is " + activeItem);
 
-        // Check if there's a state that is valid to change to
-        // For each state
-        /*
-        int stateIndex = 0;
-        int enabledObjIndex = 0;
-
-        int stateCount = states.Count;
-        int enabledObjCount;
-
-        while (stateIndex < stateCount && states[stateIndex].interactionItem != activeItem)
-        {
-            stateIndex++;
-        }
-        */
-
-        bool stateChanged = false;
-        
         for (int i = 0; i < states.Count && !stateChanged; i++)
         {
             // If there's an active item, check to see if state has same item, or if no active item, check if state has no items listed
@@ -167,6 +146,9 @@ public class Interactable : MonoBehaviour
                 }
             }
         }
+        
+        // After trying item, it should not be active anymore
+        inventory.disableAllActiveItems();
     }
 
     public void Look()

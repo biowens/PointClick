@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClickPositionManager : MonoBehaviour {
 
@@ -19,8 +20,8 @@ public class ClickPositionManager : MonoBehaviour {
     }
 
     void Update() {
-        // If right/left click is detected and click lock is not active
-        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !lockClick) {
+        // If right/left click is detected, click lock is not active, and pointer is not over UI object
+        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !lockClick && !EventSystem.current.IsPointerOverGameObject()) {
             // Initializes clickPosition to identify false clicks
             Vector3 clickPosition = -Vector3.one;
 

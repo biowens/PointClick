@@ -14,6 +14,9 @@ public class ItemCollection : ScriptableObject
 {
     public List<ItemInfo> Items;
 
+    [SerializeField]
+    private GameEvent changedActiveItem;
+
     public void AddItem(Item item) 
     {
         ItemInfo temp = new ItemInfo();
@@ -64,5 +67,32 @@ public class ItemCollection : ScriptableObject
     {
         Items.Clear();
         Items = items.Items;
+    }
+
+    public void setActive(int index)
+    {
+        disableAllActiveItems();
+        Items[index].active = true;
+        changedActiveItem.Raise();
+    }
+
+    // Returns the index of the current active item. If no active item, returns -1.
+    public int getActiveIndex()
+    {
+        for (int i=0; i<Items.Count; i++)
+        {
+            if (Items[i].active)
+                return i;
+        }
+        return -1;
+    }
+
+    public void disableAllActiveItems() 
+    {
+        for (int i=0; i<Items.Count; i++)
+        {
+            Items[i].active = false;
+        }
+        changedActiveItem.Raise();
     }
 }
