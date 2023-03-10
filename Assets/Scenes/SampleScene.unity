@@ -386,11 +386,15 @@ MonoBehaviour:
   moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
   inventory: {fileID: 11400000, guid: e3c88a9eb524012409c173fe023bec7b, type: 2}
   standPoint: {fileID: 2034523940}
-  canBePickedUp: 1
-  pickUpItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
   states:
   - changeStateObject: {fileID: 1248469503}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
+    destroyInteractionItem: 0
+    pickUpItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    enabledObjects: []
+  - changeStateObject: {fileID: 0}
+    interactionItem: {fileID: 0}
+    destroyInteractionItem: 0
     pickUpItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     enabledObjects: []
 --- !u!4 &505547312
@@ -1001,7 +1005,7 @@ GameObject:
   - component: {fileID: 1248469504}
   m_Layer: 0
   m_Name: CutApple
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1025,12 +1029,11 @@ MonoBehaviour:
   moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
   inventory: {fileID: 11400000, guid: e3c88a9eb524012409c173fe023bec7b, type: 2}
   standPoint: {fileID: 744477500}
-  canBePickedUp: 0
-  pickUpItem: {fileID: 0}
   states:
   - changeStateObject: {fileID: 505547310}
-    interactionItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
-    pickUpItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
+    interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    destroyInteractionItem: 1
+    pickUpItem: {fileID: 0}
     enabledObjects: []
 --- !u!65 &1248469505
 BoxCollider:
@@ -1052,7 +1055,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248469503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.62, y: 1, z: 3.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1692,23 +1695,15 @@ MonoBehaviour:
   movePlayer: {fileID: 11400000, guid: 5da2be25f2b397f458cdad4f97937d02, type: 2}
   playerMoving: {fileID: 11400000, guid: a48a9d4ee149e4745b56941e5d3da160, type: 2}
   moveLocation: {fileID: 11400000, guid: 1be79df4bc0643b4f9cfb914ffd052c7, type: 2}
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: e3c88a9eb524012409c173fe023bec7b, type: 2}
   standPoint: {fileID: 800553358}
-  canBePickedUp: 0
-  pickUpItem: {fileID: 0}
   states:
   - changeStateObject: {fileID: 0}
-    interactionItem: {fileID: 0}
+    interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    destroyInteractionItem: 1
     pickUpItem: {fileID: 0}
-    enabledObjects: []
-  - changeStateObject: {fileID: 0}
-    interactionItem: {fileID: 0}
-    pickUpItem: {fileID: 0}
-    enabledObjects: []
-  - changeStateObject: {fileID: 0}
-    interactionItem: {fileID: 0}
-    pickUpItem: {fileID: 0}
-    enabledObjects: []
+    enabledObjects:
+    - {fileID: 1248469503}
 --- !u!65 &2040313270
 BoxCollider:
   m_ObjectHideFlags: 0
