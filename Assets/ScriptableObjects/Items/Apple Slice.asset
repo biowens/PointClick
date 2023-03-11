@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: Apple Slice
   m_EditorClassIdentifier: 
   itemName: Apple Slice
+  itemSprite: {fileID: 0}
+  combineItems:
+  - combineItem: {fileID: 11400000}
+    resultItem: {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
+    destroyCombinedItem: 1
+  - combineItem: {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
+    resultItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
+    destroyCombinedItem: 1

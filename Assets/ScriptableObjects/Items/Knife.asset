@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Knife
   itemSprite: {fileID: 0}
+  combineItems:
+  - combineItem: {fileID: 0}
+    resultItem: {fileID: 0}
+    destroyCombinedItem: 0

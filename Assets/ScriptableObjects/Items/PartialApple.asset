@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c59e54f33b69458a04ef4ee13a0e7, type: 3}
   m_Name: PartialApple
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Partial Apple
   itemSprite: {fileID: 0}
-  combineItems: []
+  combineItems:
+  - combineItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    resultItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
+    destroyCombinedItem: 1
