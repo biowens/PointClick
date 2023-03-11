@@ -32,7 +32,6 @@ public class UIManager : MonoBehaviour
             
             Button button = newButton.GetComponent<Button>();
             
-            Debug.Log(button);
             button.onClick.AddListener(() => {
                     this.itemClick(itemIndex);
                 });
@@ -57,9 +56,18 @@ public class UIManager : MonoBehaviour
 
     public void itemClick(int index)
     {
-        inventory.disableAllActiveItems();
-        inventory.Items[index].active = true;
-        updateActiveItemText();
+        // If there is an active item, check if item can be combined
+        if (inventory.getActiveIndex() >= 0)
+        {
+            inventory.combineItems(index, inventory.getActiveIndex());
+            initInventoryButtons();
+        }
+        // If there is no active item, set clicked item to active
+        else
+        {
+            inventory.Items[index].active = true;
+            updateActiveItemText();
+        }
     }
 
     public void updateActiveItemText()
