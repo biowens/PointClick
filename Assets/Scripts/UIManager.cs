@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
                 });
 
             newButton.GetComponentInChildren<TMP_Text>().text = inventory.Items[itemIndex].item.itemName;
+            newButton.transform.Find("Image").GetComponent<Image>().sprite = inventory.Items[itemIndex].item.itemSprite;
         }
     }
 
