@@ -12,10 +12,11 @@ public class ItemInfo
 [CreateAssetMenu]
 public class ItemCollection : ScriptableObject
 {
-    public List<ItemInfo> Items;
-
     [SerializeField]
     private GameEvent changedActiveItem;
+
+    public List<ItemInfo> Items;
+ 
 
     public void AddItem(Item item) 
     {

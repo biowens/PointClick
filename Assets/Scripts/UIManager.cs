@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
 
     public GameObject activeItemText;
 
+    private void Awake()
+    {
+        updateActiveItemText();
+    }
+
     public void openInventoryButtons()
     {
         buttonParent.SetActive(true);
@@ -38,7 +43,18 @@ public class UIManager : MonoBehaviour
 
             newButton.GetComponentInChildren<TMP_Text>().text = inventory.Items[itemIndex].item.itemName;
             newButton.transform.Find("Image").GetComponent<Image>().sprite = inventory.Items[itemIndex].item.itemSprite;
+            
+            // Change active item button color to indicate which one is active
+            if (inventory.Items[itemIndex].active)
+            {
+                // newButton.GetComponent<Button>().Select();
+                var colors = newButton.GetComponent<Button>().colors;
+                colors.normalColor = colors.selectedColor;
+                newButton.GetComponent<Button>().colors = colors;
+            }
         }
+        
+        updateActiveItemText();
     }
 
     private void destroyAllInvButtons()
@@ -58,17 +74,19 @@ public class UIManager : MonoBehaviour
     public void itemClick(int index)
     {
         // If there is an active item, check if item can be combined
-        if (inventory.getActiveIndex() >= 0)
+        int activeIndex = inventory.getActiveIndex();
+
+        if (activeIndex >= 0 && activeIndex != index)
         {
             inventory.combineItems(index, inventory.getActiveIndex());
-            initInventoryButtons();
         }
         // If there is no active item, set clicked item to active
         else
         {
             inventory.Items[index].active = true;
-            updateActiveItemText();
         }
+        initInventoryButtons();
+        Debug.Log("CLICKED");
     }
 
     public void updateActiveItemText()
