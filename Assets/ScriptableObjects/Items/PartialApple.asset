@@ -26,3 +26,9 @@ MonoBehaviour:
     resultItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+  - combineItem: {fileID: 11400000, guid: 3c0a4415c0227274a8540ff37f45b2d6, type: 2}
+    destroyCombinedItem: 0
+    destroyThisItem: 1
+    resultItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
