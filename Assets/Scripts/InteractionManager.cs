@@ -57,6 +57,9 @@ public class InteractionManager : MonoBehaviour
 
     void Look()
     {
-        clickObject.Value.GetComponent<Interactable>().Look();
+        if (clickObject.Value.GetComponent<Interactable>() != null)
+            clickObject.Value.GetComponent<Interactable>().Look();
+        else
+            clickObject.Value.GetComponentInParent<Interactable>().Look();
     }
 }
