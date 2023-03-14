@@ -8,7 +8,7 @@ public class States
     public GameObject changeStateObject;
     public Item interactionItem;
     public bool destroyInteractionItem;
-    public Item pickUpItem;
+    public List<Item> pickUpItem;
     public List<GameObject> enabledObjects;
 }
 
@@ -117,8 +117,11 @@ public class Interactable : MonoBehaviour
                     // Pick up object, if needed
                     if (states[i].pickUpItem != null)
                     {
-                        inventory.AddItem(states[i].pickUpItem);
-                        Debug.Log("Picked Up Item " + states[i].pickUpItem.name);
+                        for (int j = 0; j < states[i].pickUpItem.Count; j++)
+                        {
+                            inventory.AddItem(states[i].pickUpItem[j]);
+                            Debug.Log("Picked Up Item " + states[i].pickUpItem[j].name);
+                        }
                     }
 
                     // Enable the game object in that state, if there is one

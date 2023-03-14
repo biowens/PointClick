@@ -86,7 +86,6 @@ public class UIInventoryManager : MonoBehaviour
             inventory.Items[index].active = true;
         }
         initInventoryButtons();
-        Debug.Log("CLICKED");
     }
 
     public void updateActiveItemText()
@@ -94,7 +93,7 @@ public class UIInventoryManager : MonoBehaviour
         int index = inventory.getActiveIndex();
 
         if (index != -1) {
-            activeItemText.GetComponent<TMP_Text>().text = inventory.Items[index].item.name;
+            activeItemText.GetComponent<TMP_Text>().text = inventory.Items[index].item.itemName;
         }
         else
         {

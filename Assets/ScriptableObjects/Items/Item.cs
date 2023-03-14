@@ -6,8 +6,10 @@ using UnityEngine;
 public class CombineItem
 {
     public Item combineItem;
-    public List<Item> resultItem;
     public bool destroyCombinedItem;
+    public bool destroyThisItem;
+    public List<Item> resultItem;
+    
 }
 
 [CreateAssetMenu]

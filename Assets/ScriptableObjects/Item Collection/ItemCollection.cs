@@ -17,7 +17,7 @@ public class ItemCollection : ScriptableObject
 
     public List<ItemInfo> Items;
  
-
+    // Adds item at the end of the list
     public void AddItem(Item item) 
     {
         ItemInfo temp = new ItemInfo();
@@ -27,13 +27,15 @@ public class ItemCollection : ScriptableObject
         Items.Add(temp);
     }
 
+    // Adds item after the index
     public void AddItem(Item item, int index) 
     {
         ItemInfo temp = new ItemInfo();
         temp.item = item;
         temp.active = false;
-
-        Items.Insert(index, temp);
+        
+        // added +1 to index so item is added after the item, not before
+        Items.Insert(index+1, temp);
     }
 
     public void RemoveItem(Item item)
@@ -111,31 +113,56 @@ public class ItemCollection : ScriptableObject
     // Tries to combine two items in the inventory
     // If it can be combined, combines and returns true
     //
-    public void combineItems(int indexToReplace, int indexToRemove)
+
+    public void combineItems(int indexClicked, int indexActive)
     {
-        Item toReplace = Items[indexToReplace].item;
-        Item toRemove = Items[indexToRemove].item;
+        string debugString = "";
 
-        Debug.Log("Attempting to Replace " + toReplace.name + " and Remove " + toRemove.name);
-
-        CombineItem result = toReplace.getCombinedItem(toRemove);
+        Item itemClicked = Items[indexClicked].item;
+        Item itemActive = Items[indexActive].item;
+        
+        Debug.Log("Attempting to combine selected item " + itemClicked.name + " with active item " + itemActive.name);
+        CombineItem result = itemClicked.getCombinedItem(itemActive);
 
         if (result != null)
         {
-            ReplaceItem(indexToReplace, result.resultItem[0]);
-            Debug.Log("Combined " + toReplace.name + " with " + toRemove.name + " to make " + result.resultItem[0].name);
-            for (int i = 1; i < result.resultItem.Count; i++)
+            // Insert item after clicked
+            for (int i = 0; i < result.resultItem.Count; i++)
             {
-                AddItem(result.resultItem[i], indexToReplace + i);
-                Debug.Log("Also made " + result.resultItem[i].name);
+                AddItem(result.resultItem[i], indexClicked);
+                debugString += result.resultItem[i] + " ";
+            }
+            Debug.Log("Added result items: " + debugString);
+
+            // If the active item is after the clicked item, adjust index based on number of added items
+            if (indexActive > indexClicked)
+            {
+                indexActive += result.resultItem.Count;
             }
 
-            if (result.destroyCombinedItem)
-                RemoveItem(indexToRemove);            
+            // Destroy the active item if necessary
+            if (result.destroyCombinedItem) 
+            {
+                Debug.Log("Removing active item: " + Items[indexActive].item.name);
+                RemoveItem(indexActive);
+
+                // If the clicked item is after the active item, adjust clicked index based on the removal of the active item
+                if (indexClicked > indexActive)
+                {
+                    indexClicked -= 1;
+                }
+            }
+
+            // Destroy the clicked item if necessary
+            if (result.destroyThisItem)
+            {
+                Debug.Log("Removing clicked item: " + Items[indexClicked].item.name);
+                RemoveItem(indexClicked);
+            }
         }
         else
         {
-            Debug.Log("Could not combine " + toReplace.name + " with " + toRemove.name);
+            Debug.Log("Could not combine " + itemClicked.name + " with " + itemActive.name);
         }
         disableAllActiveItems();
     }

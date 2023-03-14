@@ -545,6 +545,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266917920}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &428418038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428418039}
+  m_Layer: 5
+  m_Name: Inventory UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &428418039
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428418038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1635015250}
+  - {fileID: 885802240}
+  - {fileID: 1763928712}
+  - {fileID: 1614813172}
+  m_Father: {fileID: 966665681}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &432086394
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,49 +724,55 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1072026197}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
     - {fileID: 432086394}
   - changeStateObject: {fileID: 432086394}
     interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     destroyInteractionItem: 1
-    pickUpItem: {fileID: 0}
+    pickUpItem: []
     enabledObjects:
     - {fileID: 1072026197}
   - changeStateObject: {fileID: 49975603}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
     - {fileID: 1072026197}
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
     - {fileID: 49975603}
   - changeStateObject: {fileID: 1072026197}
     interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     destroyInteractionItem: 1
-    pickUpItem: {fileID: 0}
+    pickUpItem: []
     enabledObjects:
     - {fileID: 49975603}
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     enabledObjects:
     - {fileID: 432086394}
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
     enabledObjects:
     - {fileID: 1072026197}
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    pickUpItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
     - {fileID: 49975603}
 --- !u!4 &505547312
@@ -1079,12 +1125,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1386787709}
-  m_Father: {fileID: 966665681}
+  m_Father: {fileID: 428418039}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 282, y: 40}
+  m_AnchoredPosition: {x: -179, y: -170.5}
   m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885802242
@@ -1357,11 +1403,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1635015250}
-  - {fileID: 885802240}
-  - {fileID: 1763928712}
-  - {fileID: 1614813172}
   - {fileID: 1733315336}
+  - {fileID: 428418039}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1840,8 +1883,9 @@ MonoBehaviour:
   - changeStateObject: {fileID: 432086394}
     interactionItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     destroyInteractionItem: 1
-    pickUpItem: {fileID: 0}
-    enabledObjects: []
+    pickUpItem: []
+    enabledObjects:
+    - {fileID: 1068350796}
 --- !u!65 &1248469505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2315,17 +2359,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614813171}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 966665681}
+  m_Father: {fileID: 428418039}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -162, y: 60}
+  m_AnchoredPosition: {x: 299, y: -150.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614813173
@@ -2451,18 +2495,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635015249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 987400103}
-  m_Father: {fileID: 966665681}
+  m_Father: {fileID: 428418039}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 115, y: 40}
+  m_AnchoredPosition: {x: -346, y: -170.5}
   m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635015251
@@ -2788,7 +2832,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 966665681}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2919,17 +2963,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763928711}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 966665681}
+  m_Father: {fileID: 428418039}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -238.69147}
+  m_AnchoredPosition: {x: 0, y: -28.191467}
   m_SizeDelta: {x: 704, y: 322.6171}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763928713
@@ -3362,7 +3406,7 @@ MonoBehaviour:
   - changeStateObject: {fileID: 112269051}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
-    pickUpItem: {fileID: 0}
+    pickUpItem: []
     enabledObjects:
     - {fileID: 1254187052}
 --- !u!65 &2040313270

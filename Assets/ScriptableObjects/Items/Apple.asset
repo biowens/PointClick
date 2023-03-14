@@ -16,7 +16,15 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6a1cb5071ec227341a6cf103a862d992, type: 3}
   combineItems:
   - combineItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
+    destroyCombinedItem: 0
+    destroyThisItem: 1
     resultItem:
     - {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+  - combineItem: {fileID: 11400000, guid: 3c0a4415c0227274a8540ff37f45b2d6, type: 2}
     destroyCombinedItem: 0
+    destroyThisItem: 1
+    resultItem:
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
+    - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
