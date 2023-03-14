@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0da70bca806a04ea8211d2e0a55584, type: 3}
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
+  changedActiveItem: {fileID: 11400000, guid: 446e7fea1dc7e634aa42e87b49a514bb, type: 2}
   Items:
   - item: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     active: 0
   - item: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     active: 0
-  changedActiveItem: {fileID: 11400000, guid: 446e7fea1dc7e634aa42e87b49a514bb, type: 2}
