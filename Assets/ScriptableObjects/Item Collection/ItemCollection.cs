@@ -27,6 +27,15 @@ public class ItemCollection : ScriptableObject
         Items.Add(temp);
     }
 
+    public void AddItem(Item item, int index) 
+    {
+        ItemInfo temp = new ItemInfo();
+        temp.item = item;
+        temp.active = false;
+
+        Items.Insert(index, temp);
+    }
+
     public void RemoveItem(Item item)
     {
         Items.Remove(Items.Find(x => x.item = item));
@@ -113,11 +122,16 @@ public class ItemCollection : ScriptableObject
 
         if (result != null)
         {
-            ReplaceItem(indexToReplace, result.resultItem);
+            ReplaceItem(indexToReplace, result.resultItem[0]);
+            Debug.Log("Combined " + toReplace.name + " with " + toRemove.name + " to make " + result.resultItem[0].name);
+            for (int i = 1; i < result.resultItem.Count; i++)
+            {
+                AddItem(result.resultItem[i], indexToReplace + i);
+                Debug.Log("Also made " + result.resultItem[i].name);
+            }
+
             if (result.destroyCombinedItem)
-                RemoveItem(indexToRemove);
-            
-            Debug.Log("Combined " + toReplace.name + " with " + toRemove.name + " to make " + result.resultItem.name);
+                RemoveItem(indexToRemove);            
         }
         else
         {

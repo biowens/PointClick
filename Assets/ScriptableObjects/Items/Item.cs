@@ -6,7 +6,7 @@ using UnityEngine;
 public class CombineItem
 {
     public Item combineItem;
-    public Item resultItem;
+    public List<Item> resultItem;
     public bool destroyCombinedItem;
 }
 
