@@ -111,9 +111,6 @@ public class ItemCollection : ScriptableObject
     }
 
     // Tries to combine two items in the inventory
-    // If it can be combined, combines and returns true
-    //
-
     public void combineItems(int indexClicked, int indexActive)
     {
         string debugString = "";

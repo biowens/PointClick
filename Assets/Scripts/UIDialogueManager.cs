@@ -55,7 +55,7 @@ public class UIDialogueManager : MonoBehaviour
 
     private IEnumerator dialogueClickClose()
     {
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        yield return new WaitUntil(() => Input.anyKey);
 
         blankDialogue();
         unlockClick.Raise();

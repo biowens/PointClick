@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+
+public enum ClickType 
+{
+    Select,
+    Look
+}
 
 public class ClickPositionManager : MonoBehaviour {
 
@@ -19,35 +26,50 @@ public class ClickPositionManager : MonoBehaviour {
         lockClick = false;
     }
 
-    void Update() {
-        // If right/left click is detected, click lock is not active, and pointer is not over UI object
-        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !lockClick && !EventSystem.current.IsPointerOverGameObject()) {
-            // Initializes clickPosition to identify false clicks
-            Vector3 clickPosition = -Vector3.one;
+    public void SelectClick(InputAction.CallbackContext context)
+    {
+        if (context.performed) 
+        {
+            IdentifyValidWorldSelect(ClickType.Select);
+        }
+    }
+
+    public void LookClick(InputAction.CallbackContext context)
+    {
+        if (context.performed) {
+            IdentifyValidWorldSelect(ClickType.Look);
+        }
+    }
+
+    public void IdentifyValidWorldSelect(ClickType clickType) 
+    {
+        if (!lockClick && !EventSystem.current.IsPointerOverGameObject()) 
+        {
+            clickLocation.SetValue(-Vector3.one);
+            clickObject.Value = null;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit)) {
                 // Save location of raycast hit
-                clickPosition = hit.point;
-                clickLocation.SetValue(clickPosition);
+                clickLocation.SetValue(hit.point);
 
                 // Save object that was interacted with
                 clickObject.SetValue(hit.collider.gameObject);
-
+                
                 // Save mouse input
-                if (Input.GetMouseButtonDown(0))
+                if (clickType == ClickType.Select)
                     mouseInput.SetValue(0);
-                else
+                else if (clickType == ClickType.Look)
                     mouseInput.SetValue(1);
 
                 // Send out valid click event
                 validClick.Raise();
             }
 
-            Debug.Log("Position: " + clickPosition + " Collider: " + hit.collider.gameObject.name);            
-        }       
+            Debug.Log("Position: " + clickLocation.Value + " Collider: " + clickObject.Value);  
+        }
     }
 
     public void SetLockClick(bool value) 

@@ -12,7 +12,7 @@ public class InteractionManager : MonoBehaviour
     public GameEvent movePlayerEvent;
     public Vector3Variable movePlayerLocation;
 
-    // Update is called once per frame
+
     public void ManageInteract()
     {
         // If left click, interactions will be move and use
@@ -37,8 +37,6 @@ public class InteractionManager : MonoBehaviour
             if (clickObject.Value.tag == "Interactable")
                 Look();
         }
-        
-
     }
 
     void MovePlayer()
