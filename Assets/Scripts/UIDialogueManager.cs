@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Ink.UnityIntegration;
 
 public class UIDialogueManager : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class UIDialogueManager : MonoBehaviour
         dialogueTextComp = getDialogueTextComponent();
 
         blankDialogue();
+    }
+
+    public void startDialogue()
+    {
+        
     }
 
     public void displayDialogue(string dialogueText)
