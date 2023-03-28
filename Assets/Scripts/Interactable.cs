@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.Runtime;
 
 [System.Serializable]
 public class States
@@ -33,10 +34,15 @@ public class Interactable : MonoBehaviour
 
     [Header("GameObject")]
     public GameObject standPoint;
+    [SerializeField]
+    private GameObject uiDialogueManager;
 
     [Header("Interaction Management")]
     [SerializeField]
     private GameObject currentObject;
+    [SerializeField]
+	private TextAsset lookDialogueJSON = null;
+    private Story lookStory;
 
     public List<States> states;
     
@@ -156,7 +162,9 @@ public class Interactable : MonoBehaviour
 
     public void Look()
     {
+        uiDialogueManager.GetComponent<UIDialogueManager>().Dialogue(lookDialogueJSON);
         Debug.Log("You Looked!");
+        
     }
 
     public void setCurrentObject(GameObject newCurrentObject)
