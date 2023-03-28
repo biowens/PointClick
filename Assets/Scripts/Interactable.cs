@@ -34,8 +34,6 @@ public class Interactable : MonoBehaviour
 
     [Header("GameObject")]
     public GameObject standPoint;
-    [SerializeField]
-    private GameObject uiDialogueManager;
 
     [Header("Interaction Management")]
     [SerializeField]
@@ -162,7 +160,7 @@ public class Interactable : MonoBehaviour
 
     public void Look()
     {
-        uiDialogueManager.GetComponent<UIDialogueManager>().Dialogue(lookDialogueJSON);
+        UIDialogueManager.GetInstance().Dialogue(lookDialogueJSON);
         Debug.Log("You Looked!");
         
     }
