@@ -62,6 +62,9 @@ public class UIDialogueManager : MonoBehaviour
 
     private IEnumerator RefreshDialogue()
     {
+        // Lock click, just in case
+        lockClick.Raise();
+
         ClearChoiceButtons();
         // Read all the content until we can't continue any more
 		while (currentStory.canContinue) 
@@ -86,6 +89,7 @@ public class UIDialogueManager : MonoBehaviour
         // If we've read all the content and there's no choices, the story is finished!
 		else {
 			ClearChoiceButtons();
+            unlockClick.Raise();
 		}
     }
 
@@ -98,7 +102,6 @@ public class UIDialogueManager : MonoBehaviour
 
     public void displayDialogue(string dialogueText)
     {
-        lockClick.Raise();
         dialogueIsPlaying = true;
 
         dialogueTextComp.text = dialogueText;
@@ -160,7 +163,6 @@ public class UIDialogueManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(seconds);
 
         blankDialogue();
-        unlockClick.Raise();
         StopCoroutine(dialogueClickCoroutine);
         Debug.Log("dialogueAutoBlankTimer ended");
     }
@@ -171,7 +173,6 @@ public class UIDialogueManager : MonoBehaviour
         yield return new WaitUntil(() => Input.anyKey);
 
         blankDialogue();
-        unlockClick.Raise();
         StopCoroutine(dialogueTimerCoroutine);
         Debug.Log("dialogueClickClose ended");
     }
