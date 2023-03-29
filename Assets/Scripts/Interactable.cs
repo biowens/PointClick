@@ -9,6 +9,8 @@ public class States
     public GameObject changeStateObject;
     public Item interactionItem;
     public bool destroyInteractionItem;
+    public TextAsset interactionDialogueJSON = null;
+	public TextAsset newLookDialogueJSON = null;
     public List<Item> pickUpItem;
     public List<GameObject> enabledObjects;
 }
@@ -126,6 +128,12 @@ public class Interactable : MonoBehaviour
                             inventory.AddItem(states[i].pickUpItem[j]);
                             Debug.Log("Picked Up Item " + states[i].pickUpItem[j].name);
                         }
+                    }
+
+                    // Replace look dialogue, if needed
+                    if (states[i].newLookDialogueJSON != null)
+                    {
+                        lookDialogueJSON = states[i].newLookDialogueJSON;
                     }
 
                     // Enable the game object in that state, if there is one
