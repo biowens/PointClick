@@ -32,6 +32,7 @@ public class UIDialogueManager : MonoBehaviour
     
     private Story currentStory;
     public bool dialogueIsPlaying;
+    public bool choiceIsPlaying;
 
     void Awake()
     {
@@ -45,6 +46,7 @@ public class UIDialogueManager : MonoBehaviour
     {
         dialogueTextComp = getDialogueTextComponent();
         dialogueIsPlaying = false;
+        choiceIsPlaying = false;
         blankDialogue();
 
         // Get all the textmeshpro components of the choice buttons
@@ -121,6 +123,8 @@ public class UIDialogueManager : MonoBehaviour
 
         ClearChoiceButtons();
 
+        choiceIsPlaying = true;
+
         if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
@@ -156,6 +160,7 @@ public class UIDialogueManager : MonoBehaviour
             button.GetComponent<Button>().onClick.RemoveAllListeners();
             button.SetActive(false);
         }
+        choiceIsPlaying = false;
     }
 
     private IEnumerator dialogueAutoBlankTimer(int seconds) 

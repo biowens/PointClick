@@ -1,0 +1,3 @@
+Oh no! It's the Apple Devil!
+He must be here for his apple that I took!
+Good thing I didn't eat that apple yet...

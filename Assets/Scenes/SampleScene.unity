@@ -937,11 +937,13 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: e3c88a9eb524012409c173fe023bec7b, type: 2}
   standPoint: {fileID: 2034523940}
   currentObject: {fileID: 432086394}
-  lookDialogueJSON: {fileID: 0}
+  lookDialogueJSON: {fileID: 4900000, guid: 652c5b1b3f1611a418f8978a6e9cbd6f, type: 3}
   states:
   - changeStateObject: {fileID: 1072026197}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 5f3c5b921be255f43843fc71814f5d24, type: 3}
+    newLookDialogueJSON: {fileID: 4900000, guid: 748e6e0ba8b7d564f9ce8ca64c40b341, type: 3}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
@@ -949,12 +951,16 @@ MonoBehaviour:
   - changeStateObject: {fileID: 432086394}
     interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     destroyInteractionItem: 1
+    interactionDialogueJSON: {fileID: 4900000, guid: c4eb0cd718ff94843bf1e2b0891460de, type: 3}
+    newLookDialogueJSON: {fileID: 4900000, guid: 652c5b1b3f1611a418f8978a6e9cbd6f, type: 3}
     pickUpItem: []
     enabledObjects:
     - {fileID: 1072026197}
   - changeStateObject: {fileID: 49975603}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 5f3c5b921be255f43843fc71814f5d24, type: 3}
+    newLookDialogueJSON: {fileID: 4900000, guid: d7e99635da1bb2942b92807c8b8fe8f4, type: 3}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
@@ -962,6 +968,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 5f3c5b921be255f43843fc71814f5d24, type: 3}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
@@ -969,12 +977,16 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1072026197}
     interactionItem: {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     destroyInteractionItem: 1
+    interactionDialogueJSON: {fileID: 4900000, guid: c4eb0cd718ff94843bf1e2b0891460de, type: 3}
+    newLookDialogueJSON: {fileID: 4900000, guid: 748e6e0ba8b7d564f9ce8ca64c40b341, type: 3}
     pickUpItem: []
     enabledObjects:
     - {fileID: 49975603}
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 0}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     enabledObjects:
@@ -982,6 +994,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 0}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: b104167127ccf6445976f4f0c3269ea5, type: 2}
     enabledObjects:
@@ -989,6 +1003,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 0}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 0}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
@@ -996,6 +1012,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 11400000, guid: 3c0a4415c0227274a8540ff37f45b2d6, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 05b4c88800edddf4f8ca1f606002945f, type: 3}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
@@ -1005,6 +1023,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 11400000, guid: 3c0a4415c0227274a8540ff37f45b2d6, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 05b4c88800edddf4f8ca1f606002945f, type: 3}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
@@ -1013,6 +1033,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 1068350796}
     interactionItem: {fileID: 11400000, guid: 3c0a4415c0227274a8540ff37f45b2d6, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 4900000, guid: 05b4c88800edddf4f8ca1f606002945f, type: 3}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem:
     - {fileID: 11400000, guid: 95c2891bee8812d4ca543592f0954649, type: 2}
     enabledObjects:
@@ -2517,11 +2539,13 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: e3c88a9eb524012409c173fe023bec7b, type: 2}
   standPoint: {fileID: 744477500}
   currentObject: {fileID: 1068350796}
-  lookDialogueJSON: {fileID: 0}
+  lookDialogueJSON: {fileID: 4900000, guid: 800c239fe84fe2443a890c5dd0d9c822, type: 3}
   states:
   - changeStateObject: {fileID: 432086394}
     interactionItem: {fileID: 11400000, guid: 637eef1420848f04c88188458125f2a1, type: 2}
     destroyInteractionItem: 1
+    interactionDialogueJSON: {fileID: 4900000, guid: c8fc4961df69fb641b22eb5a1eada40c, type: 3}
+    newLookDialogueJSON: {fileID: 4900000, guid: 652c5b1b3f1611a418f8978a6e9cbd6f, type: 3}
     pickUpItem: []
     enabledObjects:
     - {fileID: 1068350796}
@@ -3637,6 +3661,7 @@ MonoBehaviour:
   lockClick: {fileID: 11400000, guid: c433a80ea7b8aa742bd409b211583fbd, type: 2}
   unlockClick: {fileID: 11400000, guid: fcec352175d4fc34e82a2e1d1241cde2, type: 2}
   dialogueIsPlaying: 0
+  choiceIsPlaying: 0
 --- !u!1 &1670025578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,6 +4302,8 @@ MonoBehaviour:
   - changeStateObject: {fileID: 112269051}
     interactionItem: {fileID: 11400000, guid: 3543f1a1a92f51346a8393dfa7d15bcf, type: 2}
     destroyInteractionItem: 0
+    interactionDialogueJSON: {fileID: 0}
+    newLookDialogueJSON: {fileID: 0}
     pickUpItem: []
     enabledObjects:
     - {fileID: 1254187052}
