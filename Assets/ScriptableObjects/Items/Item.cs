@@ -8,6 +8,7 @@ public class CombineItem
     public Item combineItem;
     public bool destroyCombinedItem;
     public bool destroyThisItem;
+    public TextAsset combineDialogueJSON = null;
     public List<Item> resultItem;
     
 }
@@ -17,6 +18,7 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public Sprite itemSprite;
+    public TextAsset lookDialogueJSON = null;
     public List<CombineItem> combineItems;
 
     // Returns the result item if it can be combined
